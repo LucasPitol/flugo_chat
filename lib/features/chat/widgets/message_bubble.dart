@@ -16,7 +16,7 @@ class MessageBubble extends StatelessWidget {
   final ChatMessage message;
   final String currentUserId;
 
-  bool get _isCurrentUser => message.userId == currentUserId;
+  bool get _isCurrentUser => message.isFromUser(currentUserId);
 
   @override
   Widget build(BuildContext context) {

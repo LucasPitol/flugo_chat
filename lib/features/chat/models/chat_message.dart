@@ -26,6 +26,9 @@ class ChatMessage {
     );
   }
 
+  /// Verifica se a mensagem é do usuário informado.
+  bool isFromUser(String userId) => this.userId == userId;
+
   /// Converte para mapa (ex.: envio ao Firebase).
   Map<String, dynamic> toMap() {
     return {
