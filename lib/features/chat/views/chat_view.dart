@@ -5,6 +5,7 @@ import 'package:flugo_chat/core/routes/app_routes.dart';
 import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_spacing.dart';
 import 'package:flugo_chat/features/chat/controllers/chat_controller.dart';
+import 'package:flugo_chat/features/chat/widgets/chat_empty_state.dart';
 import 'package:flugo_chat/features/chat/widgets/message_bubble.dart';
 import 'package:flugo_chat/features/chat/widgets/message_input.dart';
 
@@ -51,6 +52,9 @@ class ChatView extends GetView<ChatController> {
             child: Obx(
               () {
                 final sorted = controller.sortedMessages;
+                if (sorted.isEmpty) {
+                  return const ChatEmptyState();
+                }
                 return ListView.builder(
                   controller: controller.scrollController,
                   padding: const EdgeInsets.symmetric(
