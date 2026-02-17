@@ -20,7 +20,10 @@ class ChatView extends GetView<ChatController> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Flugo Chat'),
+        title: const Text(
+          'Grupo da Firma',
+          style: TextStyle(color: AppColors.textPrimary),
+        ),
         backgroundColor: AppColors.background,
         foregroundColor: AppColors.textPrimary,
         elevation: 0,
@@ -50,29 +53,27 @@ class ChatView extends GetView<ChatController> {
       body: Column(
         children: [
           Expanded(
-            child: Obx(
-              () {
-                final sorted = controller.sortedMessages;
-                if (sorted.isEmpty) {
-                  return const ChatEmptyState();
-                }
-                return ListView.builder(
-                  controller: controller.scrollController,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: AppSpacing.md,
-                    horizontal: AppSpacing.sm,
-                  ),
-                  itemCount: sorted.length,
-                  itemBuilder: (context, index) {
-                    final message = sorted[index];
-                    return MessageBubble(
-                      message: message,
-                      currentUserId: user?.uid ?? '',
-                    );
-                  },
-                );
-              },
-            ),
+            child: Obx(() {
+              final sorted = controller.sortedMessages;
+              if (sorted.isEmpty) {
+                return const ChatEmptyState();
+              }
+              return ListView.builder(
+                controller: controller.scrollController,
+                padding: const EdgeInsets.symmetric(
+                  vertical: AppSpacing.md,
+                  horizontal: AppSpacing.sm,
+                ),
+                itemCount: sorted.length,
+                itemBuilder: (context, index) {
+                  final message = sorted[index];
+                  return MessageBubble(
+                    message: message,
+                    currentUserId: user?.uid ?? '',
+                  );
+                },
+              );
+            }),
           ),
           Obx(
             () => MessageInput(
