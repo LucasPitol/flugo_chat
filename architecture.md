@@ -33,6 +33,7 @@ lib/
  ├── features/
  │    ├── auth/
  │    │    ├── controllers/
+ │    │    ├── utils/        (ex.: AuthErrorMessages)
  │    │    ├── views/
  │    │    └── widgets/
  │    │
@@ -208,6 +209,8 @@ Permite:
 * AuthController centraliza estado do usuário
 * Redirecionamento automático após login
 * Chat só acessível com usuário autenticado
+* Erros de auth exibidos em **ErrorBottomSheet** (bottom sheet)
+* Mapeamento de códigos Firebase → mensagens em português em `AuthErrorMessages`
 
 ---
 
@@ -241,6 +244,7 @@ MessageBubble
 MessageInput
 MessageList
 ChatHeader
+ErrorBottomSheet  (core/widgets — feedback de erros)
 ```
 
 Isso garante:
