@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flugo_chat/core/theme/app_colors.dart';
+
 import 'package:flugo_chat/core/theme/app_borders.dart';
+import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_spacing.dart';
 
 /// Tema Flugo — equivalente ao theme.ts MUI

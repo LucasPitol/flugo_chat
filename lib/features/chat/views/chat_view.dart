@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flugo_chat/core/routes/app_routes.dart';
 import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_spacing.dart';
+import 'package:flugo_chat/features/auth/services/auth_service.dart';
 import 'package:flugo_chat/features/chat/controllers/chat_controller.dart';
 import 'package:flugo_chat/features/chat/widgets/chat_empty_state.dart';
 import 'package:flugo_chat/features/chat/widgets/message_bubble.dart';
@@ -14,7 +15,7 @@ class ChatView extends GetView<ChatController> {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = Get.find<AuthService>().currentUser;
 
     return Scaffold(
       backgroundColor: AppColors.background,

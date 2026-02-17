@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:flugo_chat/features/auth/services/auth_service.dart';
 import 'package:flugo_chat/features/chat/controllers/chat_controller.dart';
 import 'package:flugo_chat/features/chat/services/chat_service.dart';

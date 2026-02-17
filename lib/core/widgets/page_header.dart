@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flugo_chat/core/theme/app_spacing.dart';
 
 /// Cabeçalho de página — título + ação opcional, mb: 3

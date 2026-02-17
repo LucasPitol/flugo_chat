@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_spacing.dart';
 import 'package:flugo_chat/core/widgets/app_button.dart';

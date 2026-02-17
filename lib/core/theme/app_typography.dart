@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:flugo_chat/core/theme/app_colors.dart';
 
 /// Design tokens de tipografia — Flugo

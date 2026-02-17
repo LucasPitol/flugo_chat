@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flugo_chat/features/chat/models/chat_message.dart';
 
 /// Serviço de chat — comunicação com Firebase Realtime Database.

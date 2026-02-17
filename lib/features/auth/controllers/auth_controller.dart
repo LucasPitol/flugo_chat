@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+
 import 'package:flugo_chat/core/routes/app_routes.dart';
 import 'package:flugo_chat/core/widgets/error_bottom_sheet.dart';
 import 'package:flugo_chat/features/auth/services/auth_service.dart';

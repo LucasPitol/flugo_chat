@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:flugo_chat/features/auth/services/auth_service.dart';
 import 'package:flugo_chat/features/chat/models/chat_message.dart';
 import 'package:flugo_chat/features/chat/services/chat_service.dart';

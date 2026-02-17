@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flugo_chat/core/theme/app_colors.dart';
+
 import 'package:flugo_chat/core/theme/app_borders.dart';
+import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_shadows.dart';
 
 /// Card Flugo — bordas arredondadas e sombra (tema)
