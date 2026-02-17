@@ -53,7 +53,10 @@ class ChatView extends GetView<ChatController> {
                 final sorted = controller.sortedMessages;
                 return ListView.builder(
                   controller: controller.scrollController,
-                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: AppSpacing.md,
+                    horizontal: AppSpacing.sm,
+                  ),
                   itemCount: sorted.length,
                   itemBuilder: (context, index) {
                     final message = sorted[index];
@@ -70,7 +73,7 @@ class ChatView extends GetView<ChatController> {
             () => MessageInput(
               controller: controller.messageController,
               onSubmitted: controller.sendMessage,
-              enabled: !controller.isLoading.value,
+              isLoading: controller.isLoading.value,
             ),
           ),
         ],
