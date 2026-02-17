@@ -45,14 +45,18 @@ class ChatController extends GetxController {
     return list;
   }
 
+  /// Scroll automático para a última mensagem.
+  /// Executado após adicionar mensagem e ao receber mensagem do stream.
   void _scrollToBottom() {
-    if (scrollController.hasClients) {
-      scrollController.animateTo(
-        scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeOut,
-      );
-    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   Future<void> sendMessage() async {
