@@ -5,6 +5,8 @@ import 'package:flugo_chat/core/routes/app_routes.dart';
 import 'package:flugo_chat/core/theme/app_colors.dart';
 import 'package:flugo_chat/core/theme/app_spacing.dart';
 import 'package:flugo_chat/features/chat/controllers/chat_controller.dart';
+import 'package:flugo_chat/features/chat/widgets/message_bubble.dart';
+import 'package:flugo_chat/features/chat/widgets/message_input.dart';
 
 class ChatView extends GetView<ChatController> {
   const ChatView({super.key});
@@ -43,11 +45,32 @@ class ChatView extends GetView<ChatController> {
             ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(AppSpacing.md),
-        child: Center(
-          child: Text('Chat'),
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Obx(
+              () => ListView.builder(
+                controller: controller.scrollController,
+                padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+                itemCount: controller.messages.length,
+                itemBuilder: (context, index) {
+                  final message = controller.messages[index];
+                  return MessageBubble(
+                    message: message,
+                    currentUserId: user?.uid ?? '',
+                  );
+                },
+              ),
+            ),
+          ),
+          Obx(
+            () => MessageInput(
+              controller: controller.messageController,
+              onSubmitted: controller.sendMessage,
+              enabled: !controller.isLoading.value,
+            ),
+          ),
+        ],
       ),
     );
   }
