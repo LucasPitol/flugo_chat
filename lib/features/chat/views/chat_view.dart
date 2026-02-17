@@ -49,18 +49,21 @@ class ChatView extends GetView<ChatController> {
         children: [
           Expanded(
             child: Obx(
-              () => ListView.builder(
-                controller: controller.scrollController,
-                padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
-                itemCount: controller.messages.length,
-                itemBuilder: (context, index) {
-                  final message = controller.messages[index];
-                  return MessageBubble(
-                    message: message,
-                    currentUserId: user?.uid ?? '',
-                  );
-                },
-              ),
+              () {
+                final sorted = controller.sortedMessages;
+                return ListView.builder(
+                  controller: controller.scrollController,
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+                  itemCount: sorted.length,
+                  itemBuilder: (context, index) {
+                    final message = sorted[index];
+                    return MessageBubble(
+                      message: message,
+                      currentUserId: user?.uid ?? '',
+                    );
+                  },
+                );
+              },
             ),
           ),
           Obx(

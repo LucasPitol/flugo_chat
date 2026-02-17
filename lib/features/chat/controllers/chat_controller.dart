@@ -34,7 +34,25 @@ class ChatController extends GetxController {
   void _subscribeToMessages() {
     _messagesSubscription = _chatService.streamMessages().listen((message) {
       messages.add(message);
+      _scrollToBottom();
     });
+  }
+
+  /// Mensagens ordenadas por createdAt (ascendente).
+  List<ChatMessage> get sortedMessages {
+    final list = List<ChatMessage>.from(messages);
+    list.sort((a, b) => a.createdAt.compareTo(b.createdAt));
+    return list;
+  }
+
+  void _scrollToBottom() {
+    if (scrollController.hasClients) {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeOut,
+      );
+    }
   }
 
   Future<void> sendMessage() async {
