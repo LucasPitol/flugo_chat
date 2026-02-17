@@ -1,4 +1,4 @@
-package com.example.flugo_chat
+package com.pitol.flugochat
 
 import io.flutter.embedding.android.FlutterActivity
 
